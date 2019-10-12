@@ -51,6 +51,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\AlcoholicDrink.cs" />
+    <Compile Include="Models\Beer.cs" />
+    <Compile Include="Models\Cider.cs" />
+    <Compile Include="Models\Coffee.cs" />
     <Compile Include="Models\Drink.cs" />
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
@@ -58,6 +62,16 @@
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\HotChocolate.cs" />
+    <Compile Include="Models\HotDrink.cs" />
+    <Compile Include="Models\Juice.cs" />
+    <Compile Include="Models\Milk.cs" />
+    <Compile Include="Models\NonAlcoholicDrink.cs" />
+    <Compile Include="Models\SoftDrink.cs" />
+    <Compile Include="Models\Spirit.cs" />
+    <Compile Include="Models\Tea.cs" />
+    <Compile Include="Models\Water.cs" />
+    <Compile Include="Models\Wine.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Main.resx">
@@ -72,6 +86,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Models\Models.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
