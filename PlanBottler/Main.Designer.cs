@@ -31,6 +31,7 @@ namespace PlanBottler
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main));
             this.cbxDrinkType = new System.Windows.Forms.ComboBox();
             this.cbxDrink = new System.Windows.Forms.ComboBox();
             this.cbxCount = new System.Windows.Forms.ComboBox();
@@ -38,7 +39,7 @@ namespace PlanBottler
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxDrinkSubType = new System.Windows.Forms.ComboBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,6 +53,7 @@ namespace PlanBottler
             this.cbxDrinkType.Name = "cbxDrinkType";
             this.cbxDrinkType.Size = new System.Drawing.Size(278, 33);
             this.cbxDrinkType.TabIndex = 0;
+            this.cbxDrinkType.SelectedIndexChanged += new System.EventHandler(this.cbxDrinkType_SelectedIndexChanged);
             // 
             // cbxDrink
             // 
@@ -105,13 +107,14 @@ namespace PlanBottler
             this.label4.TabIndex = 7;
             this.label4.Text = "Drink Subtype";
             // 
-            // comboBox1
+            // cbxDrinkSubType
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(408, 79);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(278, 33);
-            this.comboBox1.TabIndex = 6;
+            this.cbxDrinkSubType.FormattingEnabled = true;
+            this.cbxDrinkSubType.Location = new System.Drawing.Point(408, 79);
+            this.cbxDrinkSubType.Name = "cbxDrinkSubType";
+            this.cbxDrinkSubType.Size = new System.Drawing.Size(278, 33);
+            this.cbxDrinkSubType.TabIndex = 6;
+            this.cbxDrinkSubType.SelectedIndexChanged += new System.EventHandler(this.cbxDrinkSubType_SelectedIndexChanged);
             // 
             // txtPrice
             // 
@@ -155,14 +158,15 @@ namespace PlanBottler
             this.Controls.Add(this.label5);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbxDrinkSubType);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxCount);
             this.Controls.Add(this.cbxDrink);
             this.Controls.Add(this.cbxDrinkType);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.Text = "PlanBottler";
             this.ResumeLayout(false);
@@ -179,23 +183,11 @@ namespace PlanBottler
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbxDrinkSubType;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotal;
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            BindingSource bs = new BindingSource();
-            DrinkMachine drinkMachine = new DrinkMachine();
-            drinkMachine.Fill();
-            bs.DataSource = drinkMachine.GetDrinkTypes();
-            cbxDrinkType.DataSource = bs;
-            cbxDrinkType.ValueMember= "Key"; // bind to KeyValuePair<int, string>.Key property
-            cbxDrinkType.DisplayMember = "Value";  // bind to KeyValuePair<int, string>.Value property
-        }
     }
 }
 

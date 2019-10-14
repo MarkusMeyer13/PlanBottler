@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
 using PlanBottler.Models;
@@ -35,7 +36,7 @@ namespace PlanBottler
             var whiteWine = new Wine()
             {
                 AlcoholByVolume = 9.4d,
-                Name = "Riegele Weißbier",
+                Name = "Riessling",
                 Volume = 0.75d,
             };
             this.Drinks.Add(whiteWine);
@@ -67,6 +68,49 @@ namespace PlanBottler
             }
 
             return types;
+        }
+
+        internal SortedList<string, string> GetDrinkSubTypes(string drinkType)
+        {
+            SortedList<string, string> types = new SortedList<string, string>();
+            types.Add("-1", " - Please Select - ");
+            foreach (var item in this.Drinks)
+            {
+                var drinkSubType = item.GetType().BaseType.FullName.Split('.')[2];
+                if (drinkType == drinkSubType)
+                {
+                    var drink = item.GetType().FullName.Split('.')[2];
+
+                    var drinkDisplayName = Regex.Replace(drink, "([a-z])([A-Z])", "$1 $2");
+                    if (!types.ContainsKey(drink))
+                    {
+                        types.Add(drink, drinkDisplayName);
+                    }
+                }
+            }
+
+            return types;
+        }
+
+        /// <summary>
+        /// Gets the drinks.
+        /// </summary>
+        /// <param name="drinkType">Type of the drink.</param>
+        /// <returns>Drinks.</returns>
+        internal object GetDrinks(string drinkType)
+        {
+            SortedList<string, string> drinks = new SortedList<string, string>();
+            drinks.Add("-1", " - Please Select - ");
+            foreach (var item in this.Drinks)
+            {
+                var drinkSubType = item.GetType().FullName.Split('.')[2];
+                if (drinkType == drinkSubType)
+                {
+                    drinks.Add(item.Name, item.Name);
+                }
+            }
+
+            return drinks;
         }
     }
 }
