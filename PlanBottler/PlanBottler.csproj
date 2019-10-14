@@ -51,6 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DrinkMachine.cs" />
     <Compile Include="Models\AlcoholicDrink.cs" />
     <Compile Include="Models\Beer.cs" />
     <Compile Include="Models\Cider.cs" />

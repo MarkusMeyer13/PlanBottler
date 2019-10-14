@@ -11,7 +11,7 @@
         /// <value>
         /// The volume.
         /// </value>
-        internal int Volume { get; set; }
+        internal double Volume { get; set; }
 
         /// <summary>
         /// Gets or sets the name.

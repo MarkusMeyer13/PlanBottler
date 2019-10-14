@@ -1,4 +1,7 @@
-﻿namespace PlanBottler
+﻿using System;
+using System.Windows.Forms;
+
+namespace PlanBottler
 {
     partial class Main
     {
@@ -181,6 +184,18 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotal;
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            BindingSource bs = new BindingSource();
+            DrinkMachine drinkMachine = new DrinkMachine();
+            drinkMachine.Fill();
+            bs.DataSource = drinkMachine.GetDrinkTypes();
+            cbxDrinkType.DataSource = bs;
+            cbxDrinkType.ValueMember= "Key"; // bind to KeyValuePair<int, string>.Key property
+            cbxDrinkType.DisplayMember = "Value";  // bind to KeyValuePair<int, string>.Value property
+        }
     }
 }
 
