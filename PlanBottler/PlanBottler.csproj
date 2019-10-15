@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DrinkMachine.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
     <Compile Include="Models\AlcoholicDrink.cs" />
     <Compile Include="Models\Beer.cs" />
     <Compile Include="Models\Cider.cs" />
@@ -87,6 +88,7 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="DrinkMachine.cd" />
     <None Include="Models\Models.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
