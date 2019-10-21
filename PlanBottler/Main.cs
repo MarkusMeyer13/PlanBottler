@@ -106,6 +106,39 @@ namespace PlanBottler
         private void cbxDrink_SelectedIndexChanged(object sender, EventArgs e)
 #pragma warning restore SA1300 // Element should begin with upper-case letter
         {
+            KeyValuePair<string, string> selectedItem = (KeyValuePair<string, string>)this.cbxDrink.SelectedItem;
+
+            var count = this.drinkMachine.GetDrinkCount(selectedItem.Key);
+
+            BindingSource bs = new BindingSource
+            {
+                DataSource = count,
+            };
+            this.cbxCount.DataSource = bs;
+            this.cbxCount.ValueMember = "Key";
+            this.cbxCount.DisplayMember = "Value";
+
+            if (this.cbxDrink.SelectedIndex == 0)
+            {
+                this.cbxCount.Enabled = false;
+            }
+            else
+            {
+                this.cbxCount.Enabled = true;
+            }
+
+            var drink = this.drinkMachine.GetDrink(selectedItem.Key);
+            if (drink != null)
+            {
+                this.txtPrice.Text = drink.Price.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Fills the drink count automatically.
+        /// </summary>
+        private void FillDrinkCountAutomatically()
+        {
             KeyValuePair<string, string> selectedSubTypeItem = (KeyValuePair<string, string>)this.cbxDrinkSubType.SelectedItem;
             KeyValuePair<string, string> selectedItem = (KeyValuePair<string, string>)this.cbxDrink.SelectedItem;
 

@@ -16,12 +16,12 @@ namespace PlanBottler
         internal void Fill()
         {
             this.Drinks = new List<Drink>();
-
             var beer = new Beer()
             {
                 AlcoholByVolume = 5.7d,
                 Name = "Augustiner Hell",
                 Volume = 0.5d,
+                Price = 3.0d,
             };
             this.Drinks.Add(beer);
             this.Drinks.Add(beer);
@@ -31,6 +31,7 @@ namespace PlanBottler
                 AlcoholByVolume = 5.9d,
                 Name = "Riegele Weißbier",
                 Volume = 0.5d,
+                Price = 2.9d,
             };
             this.Drinks.Add(whiteBeer);
             this.Drinks.Add(whiteBeer);
@@ -50,6 +51,14 @@ namespace PlanBottler
                 Volume = 0.75d,
             };
             this.Drinks.Add(organgeJuice);
+
+            var tea = new Tea()
+            {
+                Name = "Pfefferminz",
+                Volume = 0.25d,
+                Price = 2.3d,
+            };
+            this.Drinks.Add(tea);
         }
 
         /// <summary>
@@ -106,11 +115,32 @@ namespace PlanBottler
         }
 
         /// <summary>
+        /// Gets the drink.
+        /// </summary>
+        /// <param name="drinkName">Name of the drink.</param>
+        /// <returns>Drink.</returns>
+        internal Drink GetDrink(string drinkName)
+        {
+            Drink drink = null;
+
+            foreach (var item in this.Drinks)
+            {
+                if (item.Name.Equals(drinkName))
+                {
+                    drink = item;
+                    break;
+                }
+            }
+
+            return drink;
+        }
+
+        /// <summary>
         /// Gets the drinks.
         /// </summary>
         /// <param name="selectedDrinkSubType">Type of the drink.</param>
         /// <returns>Drinks.</returns>
-        internal object GetDrinks(string selectedDrinkSubType)
+        internal SortedList<string, string> GetDrinks(string selectedDrinkSubType)
         {
             var drinks = new SortedList<string, string>
             {
@@ -134,7 +164,7 @@ namespace PlanBottler
         /// <param name="drink">The drink.</param>
         /// <param name="name">The name.</param>
         /// <returns>Drink count.</returns>
-        internal object GetDrinkCount(string drink, string name)
+        internal SortedList<string, string> GetDrinkCount(string drink, string name)
         {
             Type type = Type.GetType($"PlanBottler.Models.{drink}");
 
@@ -145,6 +175,29 @@ namespace PlanBottler
             foreach (var item in this.Drinks)
             {
                 if (item.GetType().Equals(type) && item.Name.Equals(name))
+                {
+                    count++;
+                    drinkCount.Add(count.ToString(), count.ToString());
+                }
+            }
+
+            return drinkCount;
+        }
+
+        /// <summary>
+        /// Gets the drink count.
+        /// </summary>
+        /// <param name="drinkName">Name of the drink.</param>
+        /// <returns>Drink count.</returns>
+        internal SortedList<string, string> GetDrinkCount(string drinkName)
+        {
+            var drinkCount = new SortedList<string, string>();
+
+            int count = 0;
+            drinkCount.Add(count.ToString(), " - Please Select - ");
+            foreach (var item in this.Drinks)
+            {
+                if (item.Name.Equals(drinkName))
                 {
                     count++;
                     drinkCount.Add(count.ToString(), count.ToString());
