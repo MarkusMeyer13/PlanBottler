@@ -74,6 +74,7 @@ namespace PlanBottler
             this.cbxCount.Name = "cbxCount";
             this.cbxCount.Size = new System.Drawing.Size(278, 33);
             this.cbxCount.TabIndex = 2;
+            this.cbxCount.SelectedIndexChanged += new System.EventHandler(this.cbxCount_SelectedIndexChanged);
             // 
             // label1
             // 

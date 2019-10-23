@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Windows.Forms;
 
 namespace PlanBottler
@@ -11,6 +12,7 @@ namespace PlanBottler
     public partial class Main : Form
     {
         private readonly DrinkMachine drinkMachine;
+        private CultureInfo cultureInfo = new CultureInfo("de-DE");
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Main"/> class.
@@ -20,6 +22,8 @@ namespace PlanBottler
             this.InitializeComponent();
             this.drinkMachine = new DrinkMachine();
             this.drinkMachine.Fill();
+            this.txtPrice.Enabled = false;
+            this.txtTotal.Enabled = false;
         }
 
         /// <summary>
@@ -130,7 +134,7 @@ namespace PlanBottler
             var drink = this.drinkMachine.GetDrink(selectedItem.Key);
             if (drink != null)
             {
-                this.txtPrice.Text = drink.Price.ToString();
+                this.txtPrice.Text = drink.Price.ToString("C", this.cultureInfo);
             }
         }
 
@@ -157,6 +161,37 @@ namespace PlanBottler
             else
             {
                 this.cbxCount.Enabled = true;
+            }
+        }
+
+        /// <summary>
+        /// Handles the SelectedIndexChanged event of the cbxCount control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+#pragma warning disable SA1300 // Element should begin with upper-case letter
+        private void cbxCount_SelectedIndexChanged(object sender, EventArgs e)
+#pragma warning restore SA1300 // Element should begin with upper-case letter
+        {
+            KeyValuePair<string, string> selectedItem = (KeyValuePair<string, string>)this.cbxCount.SelectedItem;
+            KeyValuePair<string, string> selectedDrinkItem = (KeyValuePair<string, string>)this.cbxDrink.SelectedItem;
+
+            if (this.cbxCount.SelectedIndex == 0)
+            {
+                this.cbxCount.Enabled = false;
+            }
+            else
+            {
+                this.cbxCount.Enabled = true;
+            }
+
+            var drink = this.drinkMachine.GetDrink(selectedDrinkItem.Key);
+            if (drink != null)
+            {
+                var price = drink.Price;
+                int count = int.Parse(selectedItem.Key);
+                var total = count * price;
+                this.txtTotal.Text = total.ToString("C", this.cultureInfo);
             }
         }
     }
