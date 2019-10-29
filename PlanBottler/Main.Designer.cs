@@ -45,13 +45,18 @@ namespace PlanBottler
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.extrasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.euroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dollarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // cbxDrinkType
             // 
             this.cbxDrinkType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxDrinkType.FormattingEnabled = true;
-            this.cbxDrinkType.Location = new System.Drawing.Point(68, 79);
+            this.cbxDrinkType.Location = new System.Drawing.Point(68, 126);
             this.cbxDrinkType.Name = "cbxDrinkType";
             this.cbxDrinkType.Size = new System.Drawing.Size(278, 33);
             this.cbxDrinkType.TabIndex = 0;
@@ -61,7 +66,7 @@ namespace PlanBottler
             // 
             this.cbxDrink.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxDrink.FormattingEnabled = true;
-            this.cbxDrink.Location = new System.Drawing.Point(69, 161);
+            this.cbxDrink.Location = new System.Drawing.Point(69, 208);
             this.cbxDrink.Name = "cbxDrink";
             this.cbxDrink.Size = new System.Drawing.Size(278, 33);
             this.cbxDrink.TabIndex = 1;
@@ -71,7 +76,7 @@ namespace PlanBottler
             // 
             this.cbxCount.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxCount.FormattingEnabled = true;
-            this.cbxCount.Location = new System.Drawing.Point(408, 161);
+            this.cbxCount.Location = new System.Drawing.Point(408, 208);
             this.cbxCount.Name = "cbxCount";
             this.cbxCount.Size = new System.Drawing.Size(278, 33);
             this.cbxCount.TabIndex = 2;
@@ -80,7 +85,7 @@ namespace PlanBottler
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 45);
+            this.label1.Location = new System.Drawing.Point(63, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 25);
             this.label1.TabIndex = 3;
@@ -89,7 +94,7 @@ namespace PlanBottler
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(64, 133);
+            this.label2.Location = new System.Drawing.Point(64, 180);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 25);
             this.label2.TabIndex = 4;
@@ -98,7 +103,7 @@ namespace PlanBottler
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(403, 133);
+            this.label3.Location = new System.Drawing.Point(403, 180);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 25);
             this.label3.TabIndex = 5;
@@ -107,7 +112,7 @@ namespace PlanBottler
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(403, 45);
+            this.label4.Location = new System.Drawing.Point(403, 92);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(147, 25);
             this.label4.TabIndex = 7;
@@ -117,7 +122,7 @@ namespace PlanBottler
             // 
             this.cbxDrinkSubType.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxDrinkSubType.FormattingEnabled = true;
-            this.cbxDrinkSubType.Location = new System.Drawing.Point(408, 79);
+            this.cbxDrinkSubType.Location = new System.Drawing.Point(408, 126);
             this.cbxDrinkSubType.Name = "cbxDrinkSubType";
             this.cbxDrinkSubType.Size = new System.Drawing.Size(278, 33);
             this.cbxDrinkSubType.TabIndex = 6;
@@ -126,7 +131,7 @@ namespace PlanBottler
             // txtPrice
             // 
             this.txtPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPrice.Location = new System.Drawing.Point(733, 161);
+            this.txtPrice.Location = new System.Drawing.Point(733, 208);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(220, 24);
             this.txtPrice.TabIndex = 8;
@@ -134,7 +139,7 @@ namespace PlanBottler
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(733, 133);
+            this.label5.Location = new System.Drawing.Point(733, 180);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 25);
             this.label5.TabIndex = 9;
@@ -143,7 +148,7 @@ namespace PlanBottler
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(992, 133);
+            this.label6.Location = new System.Drawing.Point(992, 180);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 25);
             this.label6.TabIndex = 11;
@@ -152,7 +157,7 @@ namespace PlanBottler
             // txtTotal
             // 
             this.txtTotal.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtTotal.Location = new System.Drawing.Point(992, 161);
+            this.txtTotal.Location = new System.Drawing.Point(992, 208);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(220, 24);
             this.txtTotal.TabIndex = 10;
@@ -160,11 +165,47 @@ namespace PlanBottler
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(615, 361);
+            this.label7.Location = new System.Drawing.Point(615, 408);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 25);
             this.label7.TabIndex = 12;
             this.label7.Text = "label7";
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.extrasToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1282, 42);
+            this.menuStrip1.TabIndex = 13;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // extrasToolStripMenuItem
+            // 
+            this.extrasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.euroToolStripMenuItem,
+            this.dollarToolStripMenuItem});
+            this.extrasToolStripMenuItem.Name = "extrasToolStripMenuItem";
+            this.extrasToolStripMenuItem.Size = new System.Drawing.Size(130, 38);
+            this.extrasToolStripMenuItem.Text = "Currency";
+            // 
+            // euroToolStripMenuItem
+            // 
+            this.euroToolStripMenuItem.Checked = true;
+            this.euroToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.euroToolStripMenuItem.Name = "euroToolStripMenuItem";
+            this.euroToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.euroToolStripMenuItem.Text = "Euro";
+            this.euroToolStripMenuItem.Click += new System.EventHandler(this.euroToolStripMenuItem_Click);
+            // 
+            // dollarToolStripMenuItem
+            // 
+            this.dollarToolStripMenuItem.Name = "dollarToolStripMenuItem";
+            this.dollarToolStripMenuItem.Size = new System.Drawing.Size(359, 44);
+            this.dollarToolStripMenuItem.Text = "Dollar";
+            this.dollarToolStripMenuItem.Click += new System.EventHandler(this.dollarToolStripMenuItem_Click);
             // 
             // Main
             // 
@@ -184,10 +225,14 @@ namespace PlanBottler
             this.Controls.Add(this.cbxCount);
             this.Controls.Add(this.cbxDrink);
             this.Controls.Add(this.cbxDrinkType);
+            this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Main";
             this.Text = "PlanBottler";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,6 +253,10 @@ namespace PlanBottler
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotal;
         private Label label7;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem extrasToolStripMenuItem;
+        private ToolStripMenuItem euroToolStripMenuItem;
+        private ToolStripMenuItem dollarToolStripMenuItem;
     }
 }
 

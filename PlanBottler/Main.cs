@@ -134,7 +134,7 @@ namespace PlanBottler
             var drink = this.drinkMachine.GetDrink(selectedItem.Key);
             if (drink != null)
             {
-                this.txtPrice.Text = drink.Price.ToString("C", this.cultureInfo);
+                this.txtPrice.Text = drink.Price.ToString("C", CultureInfo.CurrentUICulture);
             }
         }
 
@@ -191,9 +191,48 @@ namespace PlanBottler
                 var price = drink.Price;
                 int count = int.Parse(selectedItem.Key);
                 var total = count * price;
-                this.txtTotal.Text = total.ToString("C", this.cultureInfo);
+                this.txtTotal.Text = total.ToString("C", CultureInfo.CurrentUICulture);
                 this.label7.Text = drink.Volume.ToString();
             }
+        }
+
+        /// <summary>
+        /// Handles the Click event of the euroToolStripMenuItem control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+#pragma warning disable SA1300 // Element should begin with upper-case letter
+        private void euroToolStripMenuItem_Click(object sender, EventArgs e)
+#pragma warning restore SA1300 // Element should begin with upper-case letter
+        {
+            CultureInfo.CurrentUICulture = CultureInfo.CreateSpecificCulture("de-DE");
+            this.euroToolStripMenuItem.Checked = true;
+            this.dollarToolStripMenuItem.Checked = false;
+            Console.WriteLine(CultureInfo.CurrentUICulture);
+            this.cbxCount.SelectedIndex = 0;
+            this.cbxDrinkSubType.SelectedIndex = 0;
+            this.cbxDrinkType.SelectedIndex = 0;
+            this.cbxDrink.SelectedIndex = 0;
+        }
+
+        /// <summary>
+        /// Handles the Click event of the dollarToolStripMenuItem control.
+        /// </summary>
+        /// <param name="sender">The source of the event.</param>
+        /// <param name="e">The <see cref="EventArgs"/> instance containing the event data.</param>
+#pragma warning disable SA1300 // Element should begin with upper-case letter
+        private void dollarToolStripMenuItem_Click(object sender, EventArgs e)
+#pragma warning restore SA1300 // Element should begin with upper-case letter
+        {
+            CultureInfo.CurrentUICulture = CultureInfo.CreateSpecificCulture("en-US");
+            Console.WriteLine(CultureInfo.CurrentUICulture);
+            this.euroToolStripMenuItem.Checked = false;
+            this.dollarToolStripMenuItem.Checked = true;
+
+            this.cbxCount.SelectedIndex = 0;
+            this.cbxDrinkSubType.SelectedIndex = 0;
+            this.cbxDrinkType.SelectedIndex = 0;
+            this.cbxDrink.SelectedIndex = 0;
         }
     }
 }
