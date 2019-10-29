@@ -192,6 +192,7 @@ namespace PlanBottler
                 int count = int.Parse(selectedItem.Key);
                 var total = count * price;
                 this.txtTotal.Text = total.ToString("C", this.cultureInfo);
+                this.label7.Text = drink.Volume.ToString();
             }
         }
     }

@@ -8,7 +8,25 @@ namespace PlanBottler
 {
     internal class DrinkMachine
     {
-        internal List<Drink> Drinks { get; set; }
+        private List<Drink> drinks;
+
+        internal List<Drink> Drinks
+        {
+            get
+            {
+                if (this.drinks == null)
+                {
+                    this.drinks = new List<Drink>();
+                }
+
+                return this.drinks;
+            }
+
+            set
+            {
+                this.drinks = value;
+            }
+        }
 
         /// <summary>
         /// Fills this instance.

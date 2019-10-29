@@ -44,6 +44,7 @@ namespace PlanBottler
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cbxDrinkType
@@ -156,11 +157,21 @@ namespace PlanBottler
             this.txtTotal.Size = new System.Drawing.Size(220, 24);
             this.txtTotal.TabIndex = 10;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(615, 361);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(70, 25);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "label7";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 697);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.label5);
@@ -196,6 +207,7 @@ namespace PlanBottler
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtTotal;
+        private Label label7;
     }
 }
 
