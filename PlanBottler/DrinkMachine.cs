@@ -43,6 +43,7 @@ namespace PlanBottler
             };
             this.Drinks.Add(beer);
             this.Drinks.Add(beer);
+            this.Drinks.Add(beer);
 
             var whiteBeer = new Beer()
             {
